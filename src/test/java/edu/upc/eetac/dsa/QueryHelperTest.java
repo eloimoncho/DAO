@@ -1,7 +1,6 @@
 package edu.upc.eetac.dsa;
 
-import edu.upc.eetac.dsa.model.Product;
-import edu.upc.eetac.dsa.model.User;
+import edu.upc.eetac.dsa.model.Pou;
 import edu.upc.eetac.dsa.util.QueryHelper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -12,38 +11,22 @@ public class QueryHelperTest {
 
     @Test
     public void testQueryINSERTUser() throws NoSuchFieldException, InvocationTargetException, IllegalAccessException {
-        Assert.assertEquals("INSERT INTO User (ID, userId, userName, userSurname, processedOrders) VALUES (?, ?, ?, ?, ?)",
-                QueryHelper.createQueryINSERT(new User("marcmmonfort", "Marc", "Moran")));
-    }
-
-    @Test
-    public void testQueryINSERTProduct() throws NoSuchFieldException, InvocationTargetException, IllegalAccessException {
-        Assert.assertEquals("INSERT INTO Product (ID, productId, productName, price, numSales) VALUES (?, ?, ?, ?, ?)",
-                QueryHelper.createQueryINSERT(new Product("P001","Camisetas",20.0, 3)));
+        Assert.assertEquals("INSERT INTO Pou (pouId, nombrePou, nacimientoPou, correoPou, passwordPou) VALUES (?, ?, ?, ?, ?)",
+                QueryHelper.createQueryINSERT(new Pou("marcmmonfort", "Marc", "28/10/2001", "marc@gmail.com", "calella")));
     }
 
     @Test
     public void testQuerySELECTUser() {
-        Assert.assertEquals("SELECT * FROM User WHERE ID = ?",
-                QueryHelper.createQuerySELECT(new User("marcmmonfort", "Marc", "Moran")));
-    }
-
-    @Test
-    public void testQuerySELECTProduct() {
-        Assert.assertEquals("SELECT * FROM Product WHERE ID = ?",
-                QueryHelper.createQuerySELECT(new Product("P001","Camisetas",20.0, 3)));
+        Assert.assertEquals("SELECT * FROM Pou WHERE pouId = ?",
+                QueryHelper.createQuerySELECT(new Pou("marcmmonfort", "Marc", "28/10/2001", "marc@gmail.com", "calella")));
     }
 
     @Test
     public void testQueryUPDATEUser(){
-        Assert.assertEquals("UPDATE User SET userId = ?, userName = ?, userSurname = ?, processedOrders = ? WHERE userId = ?",
-                QueryHelper.createQueryUPDATE(new User("albaserra", "Alba", "Serra")));
+        Assert.assertEquals("UPDATE Pou SET pouId = ?, nombrePou = ?, nacimientoPou = ?, correoPou = ?, passwordPou = ? WHERE pouId = ?",
+                QueryHelper.createQueryUPDATE(new Pou("albaseerra", "Alba", "29/06/2001", "alba@gmail.com", "africa")));
     }
-    @Test
-    public void testQueryUPDATEProduct(){
-        Assert.assertEquals("UPDATE Product SET productId = ?, productName = ?, price = ?, numSales = ? WHERE productId = ?",
-                QueryHelper.createQueryUPDATE(new Product("P001","Camisetas",20.0, 3)));
-    }
+
 
 
 }

@@ -12,17 +12,17 @@ public class QueryHelper {
 
         String [] fields = ObjectHelper.getFields(entity);
 
-        sb.append("ID");
         for (String field: fields) {
-            sb.append(", ").append(field);
+            sb.append(field).append(", ");
         }
+        sb.setLength(sb.length()-2);
 
         sb.append(") VALUES (?");
 
         for (String field: fields) {
             sb.append(", ?");
         }
-
+        sb.setLength(sb.length()-3);
         sb.append(")");
 
         return sb.toString();
@@ -31,7 +31,7 @@ public class QueryHelper {
     public static String createQuerySELECT(Object entity) {
         StringBuffer sb = new StringBuffer();
         sb.append("SELECT * FROM ").append(entity.getClass().getSimpleName());
-        sb.append(" WHERE ID = ?");
+        sb.append(" WHERE pouId = ?");
 
         return sb.toString();
     }
