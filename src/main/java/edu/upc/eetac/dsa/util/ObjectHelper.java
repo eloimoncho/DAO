@@ -55,10 +55,12 @@ public class ObjectHelper {
 
         String[] fields = getFields(theClass.newInstance());
 
+        Object value = null;
         while(resultSet.next()) {
             Object object = theClass.newInstance();
             for(String field : fields) {
-                setter(object, field, resultSet.getObject(field));
+                value = resultSet.getObject(field);
+                if (value!=null) setter(object, field, resultSet.getObject(field));
             }
             objects.add(object);
         }

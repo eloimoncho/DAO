@@ -70,4 +70,12 @@ public class QueryHelper {
         return query.toString();
     }
 
+    public static String createQuerySELECTElementos(Class theClass, String parametro){
+        StringBuffer sb = new StringBuffer();
+        sb.append("SELECT * FROM ").append(theClass.getSimpleName());
+        sb.append(" WHERE " + parametro + " = ?");
+        return sb.toString();
+
+    }
+
 }
