@@ -10,7 +10,8 @@ public class ObjetoTienda {
     Integer recargaDiversion;
     Integer recargaSueno;
 
-    public ObjetoTienda(){};
+    public ObjetoTienda(){}
+
     public ObjetoTienda(String articuloId, String nombreArticulo, int precioArticulo, String tipoArticulo, Integer recargaHambre, Integer recargaSalud, Integer recargaDiversion, Integer recargaSueno) {
         this.articuloId = articuloId;
         this.nombreArticulo = nombreArticulo;

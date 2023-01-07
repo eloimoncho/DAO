@@ -28,7 +28,7 @@ public class ORMTest {
         /*
         Pou p = new Pou("palancasFC", "Laporta", "30/01/2001", "palancas@gmail.com", "bcn");
 
-        ObjetoTienda o = new ObjetoTienda("B002","CocaCola",6,"Bebida",10,0,0,0);
+        ObjetoTienda o = new ObjetoTienda("RC001","Camiseta blanca",6,"Ropa",0,0,0,0);
 
         ObjetoArmario a = new ObjetoArmario(4,"eloimoncho","Bebida","B001",3);
 
@@ -44,12 +44,12 @@ public class ORMTest {
     public void findAllTest(){
 
         List<Pou> pous = (List<Pou>)this.session.findAll(Pou.class);
-        Assert.assertEquals("Alba", pous.get(0).getNombrePou());
-        Assert.assertEquals(5, pous.size());
+        Assert.assertEquals("1", pous.get(0).getNombrePou());
+        Assert.assertEquals(6, pous.size());
         List<ObjetoArmario> armarios = (List<ObjetoArmario>) this.session.findAll(ObjetoArmario.class);
-        Assert.assertEquals(5, armarios.size());
+        Assert.assertEquals(6, armarios.size());
         List<ObjetoTienda> objetos = (List<ObjetoTienda>) this.session.findAll(ObjetoTienda.class);
-        Assert.assertEquals(6, objetos.size());
+        Assert.assertEquals(7, objetos.size());
     }
 
     @Test
@@ -63,7 +63,7 @@ public class ORMTest {
         Pou pou = new Pou("albaseerra", "Alba", "29/06/2001", "alba@gmail.com", "africa");
         pou.setDineroPou(50);
         pou.setNivelHambrePou(20);
-        pou.setCamisetaId(2);
+        pou.setCamisetaId("RC001");
         pou.setNivelSuenoPou(30);
         this.session.update(pou);
     }
@@ -84,8 +84,9 @@ public class ORMTest {
         Assert.assertEquals(1,lista.get(1).getIdArmario());
 
 
-        List<Pou> listaPous = (List<Pou>) this.session.getElementos(Pou.class, "nivelHambrePou", "100");
-        Assert.assertEquals(4, listaPous.size());
+        List<Pou> listaPous = (List<Pou>) this.session.getElementos(Pou.class, "record", "100");
+        Assert.assertEquals(1, listaPous.size());
+        Assert.assertEquals("victorfernandez", listaPous.get(0).getPouId());
 
         List<ObjetoTienda> listaObjetos = (List<ObjetoTienda>) this.session.getElementos(ObjetoTienda.class,"tipoArticulo", "Bebida");
         Assert.assertEquals("B001", listaObjetos.get(0).getArticuloId());

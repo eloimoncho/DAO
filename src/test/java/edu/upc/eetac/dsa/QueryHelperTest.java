@@ -13,10 +13,14 @@ public class QueryHelperTest {
 
     @Test
     public void testQueryINSERTPou() throws NoSuchFieldException, InvocationTargetException, IllegalAccessException {
+
         Assert.assertEquals("INSERT INTO Pou (pouId, nombrePou, nacimientoPou, correoPou, passwordPou, " +
-                        "dineroPou, nivelHambrePou, nivelSaludPou, nivelDiversionPou, nivelSuenoPou, camisetaId, pantalonId, gorraId, gafasId)" +
-                        " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                QueryHelper.createQueryINSERT(new Pou("marcmmonfort", "Marc", "28/10/2001", "marc@gmail.com", "calella")));
+                        "dineroPou, nivelHambrePou, nivelSaludPou, nivelDiversionPou, nivelSuenoPou, camisetaId, zapatosId, gorraId, gafasId, record)" +
+                        " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                QueryHelper.createQueryINSERT(new Pou("prova2", "prova2", "28/10/2023", "prova@gmail.com", "avui")));
+
+        Assert.assertEquals("INSERT INTO ObjetoArmario (idArmario, pouId, tipoArticulo, idArticulo, cantidad) VALUES (?, ?, ?, ?, ?)",
+                QueryHelper.createQueryINSERT(new ObjetoArmario(5, "marcmmonfort","Pocion","P001",2)));
     }
 
     @Test
@@ -28,7 +32,7 @@ public class QueryHelperTest {
     @Test
     public void testQueryUPDATEPou(){
         Assert.assertEquals("UPDATE Pou SET pouId = ?, nombrePou = ?, nacimientoPou = ?, correoPou = ?, passwordPou = ?, " +
-                        "dineroPou = ?, nivelHambrePou = ?, nivelSaludPou = ?, nivelDiversionPou = ?, nivelSuenoPou = ?, camisetaId = ?, pantalonId = ?, gorraId = ?, gafasId = ? " +
+                        "dineroPou = ?, nivelHambrePou = ?, nivelSaludPou = ?, nivelDiversionPou = ?, nivelSuenoPou = ?, camisetaId = ?, zapatosId = ?, gorraId = ?, gafasId = ?, record = ? " +
                         "WHERE pouId = ?",
                 QueryHelper.createQueryUPDATE(new Pou("albaseerra", "Alba", "29/06/2001", "alba@gmail.com", "africa")));
     }

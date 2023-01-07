@@ -7,7 +7,8 @@ public class ObjetoArmario {
     String idArticulo;
     int cantidad;
 
-    public ObjetoArmario(){};
+    public ObjetoArmario(){}
+
     public ObjetoArmario(int idArmario, String pouId, String tipoObjeto, String idArticulo, int cantidad) {
         this.idArmario = idArmario;
         this.pouId = pouId;

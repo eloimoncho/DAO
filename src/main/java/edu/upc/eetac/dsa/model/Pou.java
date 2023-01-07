@@ -16,10 +16,11 @@ public class Pou {
     Integer nivelSaludPou;
     Integer nivelDiversionPou;
     Integer nivelSuenoPou;
-    Integer camisetaId;
-    Integer pantalonId;
-    Integer gorraId;
-    Integer gafasId;
+    String camisetaId;
+    String zapatosId;
+    String gorraId;
+    String gafasId;
+    int record;
 
 
     public Pou(){}
@@ -35,10 +36,11 @@ public class Pou {
         this.nivelHambrePou = 100;
         this.nivelSaludPou = 100;
         this.nivelSuenoPou = 100;
-        this.camisetaId = 0;
-        this.pantalonId = 0;
-        this.gorraId = 0;
-        this.gafasId = 0;
+        this.camisetaId = null;
+        this.zapatosId = null;
+        this.gorraId = null;
+        this.gafasId = null;
+        this.record = 0;
     }
 
     public String getPouId() {
@@ -121,35 +123,43 @@ public class Pou {
         this.nivelSuenoPou = nivelSuenoPou;
     }
 
-    public Integer getCamisetaId() {
+    public String getCamisetaId() {
         return camisetaId;
     }
 
-    public void setCamisetaId(Integer camisetaId) {
+    public void setCamisetaId(String camisetaId) {
         this.camisetaId = camisetaId;
     }
 
-    public Integer getPantalonId() {
-        return pantalonId;
+    public String getZapatosId() {
+        return zapatosId;
     }
 
-    public void setPantalonId(Integer pantalonId) {
-        this.pantalonId = pantalonId;
+    public void setZapatosId(String zapatosId) {
+        this.zapatosId = zapatosId;
     }
 
-    public Integer getGorraId() {
+    public String getGorraId() {
         return gorraId;
     }
 
-    public void setGorraId(Integer gorraId) {
+    public void setGorraId(String gorraId) {
         this.gorraId = gorraId;
     }
 
-    public Integer getGafasId() {
+    public String getGafasId() {
         return gafasId;
     }
 
-    public void setGafasId(Integer gafasId) {
+    public void setGafasId(String gafasId) {
         this.gafasId = gafasId;
+    }
+
+    public int getRecord() {
+        return record;
+    }
+
+    public void setRecord(int record) {
+        this.record = record;
     }
 }
