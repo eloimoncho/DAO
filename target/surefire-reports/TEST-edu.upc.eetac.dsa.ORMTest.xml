@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="edu.upc.eetac.dsa.ORMTest" time="0.293" errors="0" skipped="0">
+<testsuite tests="7" failures="0" name="edu.upc.eetac.dsa.ORMTest" time="0.169" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2022.2.2"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -62,10 +62,11 @@
     <property name="sun.stdout.encoding" value="UTF-8"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="edu.upc.eetac.dsa.ORMTest" name="loginTest" time="0.204"/>
-  <testcase classname="edu.upc.eetac.dsa.ORMTest" name="registerTest" time="0.004"/>
-  <testcase classname="edu.upc.eetac.dsa.ORMTest" name="getElementosTest" time="0.024"/>
-  <testcase classname="edu.upc.eetac.dsa.ORMTest" name="updateTest" time="0.026"/>
-  <testcase classname="edu.upc.eetac.dsa.ORMTest" name="findAllTest" time="0.032"/>
+  <testcase classname="edu.upc.eetac.dsa.ORMTest" name="updateObjetoArmarioTest" time="0.116"/>
+  <testcase classname="edu.upc.eetac.dsa.ORMTest" name="loginTest" time="0.008"/>
+  <testcase classname="edu.upc.eetac.dsa.ORMTest" name="registerTest" time="0.001"/>
+  <testcase classname="edu.upc.eetac.dsa.ORMTest" name="getElementosTest" time="0.014"/>
+  <testcase classname="edu.upc.eetac.dsa.ORMTest" name="updateTest" time="0.009"/>
+  <testcase classname="edu.upc.eetac.dsa.ORMTest" name="findAllTest" time="0.018"/>
   <testcase classname="edu.upc.eetac.dsa.ORMTest" name="deleteTest" time="0.003"/>
 </testsuite>

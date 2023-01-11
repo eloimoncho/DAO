@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.lang.reflect.InvocationTargetException;
+import java.sql.SQLException;
 import java.util.List;
 
 public class ORMTest {
@@ -91,5 +92,14 @@ public class ORMTest {
         List<ObjetoTienda> listaObjetos = (List<ObjetoTienda>) this.session.getElementos(ObjetoTienda.class,"tipoArticulo", "Bebida");
         Assert.assertEquals("B001", listaObjetos.get(0).getArticuloId());
         Assert.assertEquals(2,listaObjetos.size());
+    }
+
+    @Test
+    public void updateObjetoArmarioTest() {
+        try {
+            this.session.updateObjetoArmario(4,"albaseerra","B001");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

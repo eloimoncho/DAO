@@ -19,5 +19,7 @@ public interface Session<E> {
     void deleteRecords(Class theClass);
     List<Object> query(String query, Class theClass, HashMap params);
 
+    void updateObjetoArmario(int cantidad, String pouId, String idArticulo) throws SQLException;
+
     //void comprarObjeto(String idPou,String idProducto, int cantidad);
 }

@@ -2,12 +2,11 @@ package edu.upc.eetac.dsa;
 
 import edu.upc.eetac.dsa.util.ObjectHelper;
 import edu.upc.eetac.dsa.util.QueryHelper;
-import edu.upc.eetac.dsa.model.*;
+
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -148,17 +147,18 @@ public class SessionImpl implements Session {
         }
     }
 
-    /*
-    public void comprarObjeto(String idPou,String idProducto, int cantidad){ //Un pou quiere comprar un producto
-        ObjetoTienda producto = (ObjetoTienda) this.get(ObjetoTienda.class, idProducto);
-        Pou pou = (Pou) this.get(Pou.class,idPou);
-        List<Object> lista = this.findAll(Armario.class);
-        int idArmario = lista.size();
-        String tipoProducto = producto.getTipoArticulo();
-        Armario a = new Armario(idArmario,idPou,tipoProducto,idProducto,cantidad);
-        int precio = producto.getPrecioArticulo();
-        int descuento = precio * cantidad;
-        pou.setDineroPou(pou.getDineroPou()-descuento);
-        this.save(a);
-    }*/
+    @Override
+    public void updateObjetoArmario(int cantidad, String pouId, String idArticulo) {
+        try{
+            String query = QueryHelper.createQueryUPDATEObjetoArmario();
+            PreparedStatement statement = conn.prepareStatement(query);
+
+            statement.setObject(1, cantidad);
+            statement.setObject(2, pouId);
+            statement.setObject(3,idArticulo);
+
+            statement.executeQuery();
+        }catch (SQLException e) {throw new RuntimeException(e);}
+
+    }
 }

@@ -77,5 +77,10 @@ public class QueryHelper {
         return sb.toString();
 
     }
+    public static String createQueryUPDATEObjetoArmario(){
+        StringBuffer sb = new StringBuffer();
+        sb.append("UPDATE ObjetoArmario SET cantidad = ? WHERE pouID = ? and idArticulo = ?");
+        return sb.toString();
+    }
 
 }
