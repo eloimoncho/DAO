@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="DAO" target="16" />
+      <module name="DAO" target="11" />
       <module name="main" target="1.5" />
     </bytecodeTargetLevel>
   </component>
