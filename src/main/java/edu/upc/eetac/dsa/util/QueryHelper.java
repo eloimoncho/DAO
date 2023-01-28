@@ -83,4 +83,11 @@ public class QueryHelper {
         return sb.toString();
     }
 
+    public static String createQueryORDERSomethingByColumnValues(Class theClass, String parametro){
+        StringBuffer sb = new StringBuffer();
+        sb.append("SELECT * FROM ").append(theClass.getSimpleName());
+        sb.append(" ORDER BY " + parametro + " DESC");
+        return sb.toString();
+    }
+
 }

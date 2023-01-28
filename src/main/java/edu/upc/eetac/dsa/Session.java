@@ -21,5 +21,7 @@ public interface Session<E> {
 
     void updateObjetoArmario(int cantidad, String pouId, String idArticulo) throws SQLException;
 
+    List<Object> obtenerObjetosOrdenadosPorAlgo(Class theClass, String criterioOrden);
+
     //void comprarObjeto(String idPou,String idProducto, int cantidad);
 }

@@ -161,4 +161,21 @@ public class SessionImpl implements Session {
         }catch (SQLException e) {throw new RuntimeException(e);}
 
     }
+
+    @Override
+    public List<Object> obtenerObjetosOrdenadosPorAlgo(Class theClass, String criterioOrden) {
+        String selectQuery = QueryHelper.createQueryORDERSomethingByColumnValues(theClass, criterioOrden);
+        PreparedStatement statement;
+        List<Object> listaOrdenadaDescendientemente = null;
+
+        try{
+            statement = conn.prepareStatement(selectQuery);
+            listaOrdenadaDescendientemente = ObjectHelper.createObjects(statement.executeQuery(), theClass);
+        } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException |
+                 NoSuchFieldException | InvocationTargetException e) {
+            throw new RuntimeException(e);
+        }
+
+        return listaOrdenadaDescendientemente;
+    }
 }
